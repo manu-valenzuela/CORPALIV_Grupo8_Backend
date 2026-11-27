@@ -2,7 +2,14 @@
 -- CORPALIV - Creación de bases de datos y tablas
 -- Una base de datos por microservicio
 -- =====================================================
-
+-- Usuario de la aplicación (lo usan los 5 microservicios)
+CREATE USER IF NOT EXISTS 'corpaliv'@'localhost' IDENTIFIED BY 'corpaliv123';
+GRANT ALL PRIVILEGES ON corpaliv_auth.*       TO 'corpaliv'@'localhost';
+GRANT ALL PRIVILEGES ON corpaliv_usuarios.*   TO 'corpaliv'@'localhost';
+GRANT ALL PRIVILEGES ON corpaliv_donaciones.* TO 'corpaliv'@'localhost';
+GRANT ALL PRIVILEGES ON corpaliv_noticias.*   TO 'corpaliv'@'localhost';
+GRANT ALL PRIVILEGES ON corpaliv_ventas.*     TO 'corpaliv'@'localhost';
+FLUSH PRIVILEGES;
 -- ---------- auth (puerto 8081) ----------
 CREATE DATABASE IF NOT EXISTS corpaliv_auth;
 USE corpaliv_auth;
