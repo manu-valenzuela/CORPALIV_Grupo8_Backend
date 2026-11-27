@@ -12,6 +12,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 	// Para editar: el RUT o el correo no pueden pertenecer a otro usuario
 	boolean existsByRutAndIdNot(String rut, Long id);
-
-	boolean existsByCorreoAndIdNot(String correo, Long id);
 }

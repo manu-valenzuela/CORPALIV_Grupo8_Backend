@@ -37,6 +37,7 @@ public class UsuarioService {
 		}
 		Usuario usuario = new Usuario();
 		copiarDatos(datos, usuario);
+		usuario.setCorreo(datos.correo());
 		return usuarioRepository.save(usuario);
 	}
 
@@ -44,9 +45,6 @@ public class UsuarioService {
 		Usuario usuario = obtener(id);
 		if (usuarioRepository.existsByRutAndIdNot(datos.rut(), id)) {
 			throw new ConflictoException("El RUT ya está registrado");
-		}
-		if (usuarioRepository.existsByCorreoAndIdNot(datos.correo(), id)) {
-			throw new ConflictoException("El correo ya está registrado");
 		}
 		copiarDatos(datos, usuario);
 		return usuarioRepository.save(usuario);
@@ -65,6 +63,5 @@ public class UsuarioService {
 		usuario.setLatitud(datos.latitud());
 		usuario.setLongitud(datos.longitud());
 		usuario.setMontoDonacionMensual(datos.montoDonacionMensual());
-		usuario.setCorreo(datos.correo());
 	}
 }
