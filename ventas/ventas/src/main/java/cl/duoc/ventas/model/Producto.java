@@ -30,6 +30,10 @@ public class Producto {
 	@Column(nullable = false)
 	private Integer precio;
 
+	// Unidades disponibles: se descuentan al vender
+	@Column(nullable = false)
+	private Integer stock;
+
 	@Column(name = "url_imagen", length = 255)
 	private String urlImagen;
 }

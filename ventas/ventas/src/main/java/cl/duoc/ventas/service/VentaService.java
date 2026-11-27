@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import cl.duoc.ventas.dto.VentaRequest;
 import cl.duoc.ventas.model.Producto;
@@ -25,9 +26,12 @@ public class VentaService {
 		return ventaRepository.findAllByOrderByFechaDesc();
 	}
 
-	// El correo del comprador viene del token; el producto debe existir (si no, 404)
+	// El correo del comprador viene del token; el producto debe existir (404) y tener stock (409).
+	// @Transactional: si algo falla, no se descuenta el stock ni se guarda la venta
+	@Transactional
 	public Venta registrar(VentaRequest datos, String correoComprador) {
 		Producto producto = productoService.obtener(datos.productoId());
+		productoService.descontarStock(producto, datos.cantidad());
 
 		Venta venta = new Venta();
 		venta.setProductoId(producto.getId());

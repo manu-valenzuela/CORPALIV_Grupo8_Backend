@@ -19,6 +19,10 @@ public record ProductoRequest(
 		@Min(value = 1, message = "El precio debe ser mayor a $0")
 		Integer precio,
 
+		@NotNull(message = "El stock es obligatorio")
+		@Min(value = 0, message = "El stock no puede ser negativo")
+		Integer stock,
+
 		@Size(max = 255, message = "La URL de la imagen admite hasta 255 caracteres")
 		String urlImagen
 ) {

@@ -15,13 +15,13 @@ INSERT INTO noticia (titulo, resumen, url_imagen, fecha) VALUES
 
 USE corpaliv_ventas;
 
-INSERT INTO producto (nombre, descripcion, precio, url_imagen) VALUES
+INSERT INTO producto (nombre, descripcion, precio, stock, url_imagen) VALUES
 ('Agenda Institucional 2026',
  'Agenda encuadernada con ilustraciones creadas por los estudiantes.',
- 12500, 'https://picsum.photos/seed/corpaliv-agenda/600/400'),
+ 12500, 20, 'https://picsum.photos/seed/corpaliv-agenda/600/400'),
 ('Tazón Solidario CORPALIV',
  'Tazón cerámico de 350 ml con diseño exclusivo.',
- 6500, 'https://picsum.photos/seed/corpaliv-tazon/600/400'),
+ 6500, 15, 'https://picsum.photos/seed/corpaliv-tazon/600/400'),
 ('Bolsa Ecológica de Tela',
  'Bolsa de algodón orgánico reutilizable.',
- 4500, 'https://picsum.photos/seed/corpaliv-bolsa/600/400');
+ 4500, 30, 'https://picsum.photos/seed/corpaliv-bolsa/600/400');

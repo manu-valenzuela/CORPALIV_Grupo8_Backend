@@ -78,6 +78,7 @@ CREATE TABLE IF NOT EXISTS producto (
     nombre       VARCHAR(100) NOT NULL,
     descripcion  VARCHAR(255) NOT NULL,
     precio       INT          NOT NULL,
+    stock        INT          NOT NULL DEFAULT 0,
     url_imagen   VARCHAR(255) NULL,
     PRIMARY KEY (id)
 );

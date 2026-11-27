@@ -27,7 +27,7 @@ public class VentaController {
 		this.ventaService = ventaService;
 	}
 
-	// Con sesión (comprar pide iniciar sesión): 201 | 400 | 401 | 404 producto inexistente
+	// Con sesión (comprar pide iniciar sesión): 201 | 400 | 401 | 404 producto inexistente | 409 sin stock
 	@PostMapping
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<Venta> registrar(@Valid @RequestBody VentaRequest datos, Authentication autenticacion) {

@@ -21,6 +21,7 @@ public record UsuarioRequest(
 
 		@NotBlank(message = "El RUT es obligatorio")
 		@Size(max = 12, message = "El RUT admite hasta 12 caracteres")
+		@RutValido
 		String rut,
 
 		// Formato JSON: "AAAA-MM-DD"
